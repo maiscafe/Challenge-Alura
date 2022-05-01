@@ -86,7 +86,7 @@ header {
     border: none;
     border-radius: 20px;
     background: white;
-    width: 95%;
+    width: 92%;
     height: 150px;
     margin-bottom: 20px;
     font-family: 'Inter', sans-serif;
@@ -109,16 +109,3 @@ header {
     color: white;
     margin-bottom: 1rem;
 }
-footer {
-    justify-content: space-between;
-    width: 100%;
-    display: flex;
-}
-.redes-sociais img {
-    justify-content: space-between;
-    width: 30%;
-}
-img:last-of-type{
-    justify-content: space-between;
-}
-
