@@ -1,19 +1,30 @@
 
+:root {
+  --colorBackground: #E5E5E5;
+  --colorBtn: #0A3871;
+  --textColor: #0a3871c2;
+}
+
 body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background:  #E5E5E5;
+    background:  var(--colorBackground);
     font-family: 'Inter', sans-serif;
 }
 .container {
     width: 90%;
-    padding-left: 3rem;
+    padding-left: 2rem;
     display: flex;
 }
 header {
  width: 100%;
+ margin-bottom: 10px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
 }
+
 .logo-alura {
     margin: 24px 0 0 16px;
     width: 32px;
@@ -21,12 +32,12 @@ header {
     margin-bottom: 2rem;
 }
 .text-before {
-    color: #0A3871;
+    color: var(--colorBtn);
     padding-bottom: 1em;
     font-size: 22px;
     resize: none;
     border: none;
-    background: #E5E5E5;
+    background: var(--colorBackground);
     width: 100%;
     height: 150px;
     margin-bottom: 20px;
@@ -34,7 +45,7 @@ header {
 }
 .text-before::placeholder {
     font-size: 22px;
-    color: #0a3871c2
+    color: var(--textColor);
 }
 .info{
     margin-top: 3rem;
@@ -44,7 +55,7 @@ header {
 }
 .info p {
     font-size: 12px;
-    color: #343A40;
+    color: var(--textColor);
 }
 .logo-info {
     float: left;
@@ -60,34 +71,38 @@ header {
     height: 50px;
     border: none;
     border-radius: 18px;
-    background: #0A3871;
+    background: var(--colorBtn);
     color: white;
     margin-bottom: 1rem;
 }
 .btnDescriptografar {
     width: 100%;
     height: 50px;
-    border: 1px solid #0A3871;
+    border: 1px solid var(--colorBtn);
     border-radius: 18px;
     background: transparent;
-    color: #0A3871;
+    color: var(--colorBtn);
     margin-bottom: 4rem;
-    box-shadow: 0px 0px 10px #0a387170;
+    box-shadow: 0px 0px 10px var(--textColor);
 }
 .btnDescriptografar:active, .btnCriptografar:active, .btnCopy:active {
     transform: scale(0.99);
     transition: ease-in-out 0.1s;
 }
+.textandbutton {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .text-after {
-    color: #0A3871;
-    padding-bottom: 1em;
+    width: 100%;
+    height: 150px;
     font-size: 22px;
     resize: none;
     border: none;
     border-radius: 20px;
     background: white;
-    width: 92%;
-    height: 150px;
     margin-bottom: 20px;
     font-family: 'Inter', sans-serif;
     box-shadow: 0px 0px 10px #0a387170;
@@ -98,14 +113,14 @@ header {
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    color: #343a409f;
+    color: var(--textColor);
 }
 .btnCopy {
     width: 100%;
     height: 50px;
     border: none;
     border-radius: 18px;
-    background: #0A3871;
+    background: var(--colorBtn);
     color: white;
     margin-bottom: 1rem;
 }
@@ -121,4 +136,69 @@ footer {
 footer img {
     width: 100px;
     object-fit: contain;
+}
+
+
+/*RESPONSIVO*/
+
+@media screen and (min-width: 769px){
+    body {
+        display: flex;
+        flex-direction: row;
+    }
+    .container {
+        display: inline-block;
+    }
+    header {
+        align-items: flex-start;
+    }
+    .text-before {
+        padding-bottom: 1em;
+        width: 60%;
+        height: 60%;
+    }
+    .text-after {
+        background-image: url(../img/search-girl.png);
+        background-repeat: no-repeat;
+        background-size: 10rem;
+        background-position: 50%;
+        height: 100%;
+        width: 92%;
+    }
+    .text-after::placeholder {
+        padding-top: 10%;
+        text-align: center;
+        vertical-align: 10%;
+    }
+    .textandbutton {
+        position: absolute;
+        width: 40%;
+        height: 75%;
+        top: 30px;
+        right: 16px; 
+    }
+    .btnCopy {
+        width: 96%;
+    }
+    .btnCriptografar {
+        width: 25%;
+        display: inline-block;
+        height: 50px;
+        margin: 15px;
+    }
+    .btnDescriptografar {
+        width: 25%;
+        display: inline-block;
+        height: 50px;
+        margin: 15px;
+    }
+    .btn {
+        width: 100%;
+        margin: 15px
+    }
+    footer {
+        width: 60%;
+        height: 50px;
+        align-items: flex-end;
+    }
 }
