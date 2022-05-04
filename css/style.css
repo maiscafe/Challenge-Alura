@@ -109,3 +109,16 @@ header {
     color: white;
     margin-bottom: 1rem;
 }
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+footer img {
+    width: 100px;
+    object-fit: contain;
+}
