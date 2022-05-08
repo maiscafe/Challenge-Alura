@@ -1,19 +1,22 @@
 var btnCriptografar = document.querySelector(".btnCriptografar");
 var btnDescriptografar = document.querySelector(".btnDescriptografar");
+var btnCopy = document.querySelector(".btnCopy");
 const regex = new RegExp(/^[a-z\s]+$/, "i");
 
 btnCriptografar.addEventListener('click', criptografar );
-btnDescriptografar.addEventListener('click', descriptografar );
+btnDescriptografar.addEventListener('click', descriptografar);
+btnCopy.addEventListener('click', btnCopyfunction);
+
+var textAfter = document.querySelector(".text-after");
 
 
 
 function criptografar () {
     var textBox = document.querySelector(".text-before")
     var textValue = textBox.value;
-    var textAfter = document.querySelector(".text-after");
 
     if (textValue.length > 0) {
-        if (regex.test(textValue) == true){
+            document.querySelector("#erro-cripto").textContent = "";
             let textoEncriptado = textValue
                 .replaceAll('e', 'enter')
                 .replaceAll('i', 'imes')
@@ -22,7 +25,6 @@ function criptografar () {
                 .replaceAll('o', 'ober');
            textAfter.textContent = textoEncriptado;
            document.querySelector("#erro-cripto").textContent = "";
-        }   
     } else {
     document.querySelector("#erro-cripto").textContent = "O campo está em branco"
     }
@@ -35,7 +37,6 @@ function criptografar () {
 function descriptografar () {
     var textBox = document.querySelector(".text-before")
     var textValue = textBox.value;
-    var textAfter = document.querySelector(".text-after");
 
     if (regex.test(textValue) == true){
         let textoDescriptado = textValue
@@ -46,7 +47,9 @@ function descriptografar () {
             .replaceAll('ober', 'o');
        textAfter.textContent = textoDescriptado;
     }
-    
+}
 
-   
+function btnCopyfunction() {
+    var copiar = textAfter.textContent;
+    navigator.clipboard.writeText(copiar);
 }
