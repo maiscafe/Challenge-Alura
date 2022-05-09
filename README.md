@@ -1,2 +1,2 @@
-# Challange-Alura-Decodificador
+# Challenge-Alura-Decodificador
  Desafio #01 da trilha de Front End da Alura
