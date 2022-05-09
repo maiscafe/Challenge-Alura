@@ -24,7 +24,9 @@ header {
  justify-content: space-between;
  align-items: center;
 }
-
+.invisivel {
+    opacity: 0;
+}
 .logo-alura {
     margin: 24px 0 0 16px;
     width: 32px;
@@ -183,6 +185,10 @@ footer img {
     }
     .btnCopy {
         width: 96%;
+    }
+    #msg-copy {
+        margin-left: 32%;
+        transition: ease-in-out 1s;
     }
     .btnCriptografar {
         width: 25%;

@@ -8,12 +8,12 @@ btnDescriptografar.addEventListener('click', descriptografar);
 btnCopy.addEventListener('click', btnCopyfunction);
 
 var textAfter = document.querySelector(".text-after");
-
+var textBox = document.querySelector(".text-before")
 
 
 function criptografar () {
-    var textBox = document.querySelector(".text-before")
-    var textValue = textBox.value;
+
+    var textValue = textBox.value.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
 
     if (textValue.length > 0) {
             document.querySelector("#erro-cripto").textContent = "";
@@ -24,9 +24,9 @@ function criptografar () {
                 .replaceAll('u', 'ufat')
                 .replaceAll('o', 'ober');
            textAfter.textContent = textoEncriptado;
-           document.querySelector("#erro-cripto").textContent = "";
+           limpaMsg();
     } else {
-    document.querySelector("#erro-cripto").textContent = "O campo está em branco"
+    document.querySelector("#erro-cripto").textContent = "O campo está em branco";
     }
 
     
@@ -35,8 +35,8 @@ function criptografar () {
 }
 
 function descriptografar () {
-    var textBox = document.querySelector(".text-before")
     var textValue = textBox.value;
+    limpaMsg();
 
     if (regex.test(textValue) == true){
         let textoDescriptado = textValue
@@ -50,6 +50,13 @@ function descriptografar () {
 }
 
 function btnCopyfunction() {
+    document.querySelector("#msg-copy").textContent = "Copiado com sucesso!";
     var copiar = textAfter.textContent;
     navigator.clipboard.writeText(copiar);
+    };
+
+function limpaMsg (){
+    document.querySelector("#msg-copy").textContent = "";
+    document.querySelector("#erro-cripto").textContent = "";
+
 }
